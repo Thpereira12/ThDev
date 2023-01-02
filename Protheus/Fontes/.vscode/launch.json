@@ -18,7 +18,13 @@
 		},
 		{
 			"label": "SIGAFIN"
+		},
+		{
+			"label": "SIGAFAT"
+		},
+		{
+			"label": "U_fTiraAcent"
 		}
 	],
-	"lastProgramExecuted": "SIGAADV"
+	"lastProgramExecuted": "U_fTiraAcent"
 }

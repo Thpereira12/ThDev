@@ -18,8 +18,8 @@
 
 User Function FA070TIT ()
 
-Local aArea       := GetArea()
-Local lRet := .T.
+Local aArea  := GetArea()
+Local lRet   := .T.
 
 If MsgYesNo( 'Confirma a baixa do titulo?', 'Baixa de titulo a receber' )
     Alert(" Titulo baixado ")
