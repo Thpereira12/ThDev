@@ -4,17 +4,17 @@
 
 
 
-/*/{Protheus.doc} FA070TIT
 
+//--------------------------------------------------
+	/*/{Protheus.doc} FA070TIT
+	Confirma baixa de titulo a receber  
 
+	@author Thierry Pereira
+	@since 23/12/2022
 
-
-@author Thierry
-@since 15/12/2022
-
-
-
-/*/
+	@return
+	/*/
+//--------------------------------------------------
 
 User Function FA070TIT ()
 

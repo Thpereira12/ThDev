@@ -59,6 +59,8 @@ Static Function SPFatImp02(lEnd, cArq)
     Local nConta      := 0
     Local nAtual      := 0 
     Local nLoop       := 0
+    Local cEmail      := 0
+    Local cEmail2      := 0 
 	
     Private lMsErroAuto     as logical
 	Private lMsHelpAuto	    as logical
@@ -109,9 +111,15 @@ Static Function SPFatImp02(lEnd, cArq)
 			(aDados[nx][6]) := (aDados[nx][10]) 
 		Endif
         
-        If empty(aDados[nx][34])
-			(aDados[nx][34]) := (aDados[nx][35]) 
+        If empty(aDados[nx][33])
+			(aDados[nx][33]) := (aDados[nx][34]) 
 		Endif
+
+       cEmail := Alltrim(aDados[nx][19])
+       cEmail := StrTran(cEmail,";","")
+
+       cEmail2 := Alltrim(aDados[nx][20])
+       cEmail2 := StrTran(cEmail2,";","")
 
         nAtual++
 
@@ -122,27 +130,28 @@ Static Function SPFatImp02(lEnd, cArq)
         aAdd(aAuto,{'A1_COD'     ,Alltrim(U_NEWGENASP(aDados[nx][1]))                                                        ,Nil})
         aAdd(aAuto,{'A1_DTCAD'   ,Stod(SubStr(aDados[nx][2],1,4) + SubStr(aDados[nx][2],6,2) + SubStr(aDados[nx][2],9,2))    ,Nil})
         aAdd(aAuto,{'A1_LOJA'    ,"01"                                                                                       ,Nil})
-        aAdd(aAuto,{'A1_TIPO'    ,"J"                                                                                        ,Nil})
-        aAdd(aAuto,{'A1_EST'     ,Alltrim(aDados[nx][])                                                                      ,Nil})
-        aAdd(aAuto,{'A1_END'     ,Alltrim(U_NEWGENASP(aDados[nx][]))                                                         ,Nil})
-        aAdd(aAuto,{'A1_BAIRRO'  ,Alltrim(aDados[nx][])                                                                      ,Nil}) 
-        aAdd(aAuto,{'A1_CEP'     ,Alltrim(U_NEWGENASP(aDados[nx][]))                                                         ,Nil})
-        aAdd(aAuto,{'A1_MUN'     ,Alltrim(aDados[nx][])                                                                      ,Nil})
+        aAdd(aAuto,{'A1_TIPO'    ,"F"                                                                                        ,Nil})
+        aAdd(aAuto,{'A1_EST'     ,Alltrim(aDados[nx][53])                                                                    ,Nil})
+        aAdd(aAuto,{'A1_END'     ,Alltrim(U_NEWGENASP(aDados[nx][51])) + Alltrim(U_NEWGENASP(aDados[nx][52]))                ,Nil})
+        aAdd(aAuto,{'A1_BAIRRO'  ,Alltrim(aDados[nx][47])                                                                    ,Nil}) 
+        aAdd(aAuto,{'A1_CEP'     ,Alltrim(U_NEWGENASP(aDados[nx][48]))                                                       ,Nil})
+        aAdd(aAuto,{'A1_MUN'     ,Alltrim(aDados[nx][49])                                                                    ,Nil})
+        aAdd(aAuto,{'A1_COMPLEM' ,Alltrim(aDados[nx][50])                                                                    ,Nil}) 
         aAdd(aAuto,{'A1_CNAE'    ,Alltrim(U_NEWGENASP(aDados[nx][5]))                                                        ,Nil})
         aAdd(aAuto,{'A1_CGC'     ,Alltrim(U_NEWGENASP(aDados[nx][6]))                                                        ,Nil})
         aAdd(aAuto,{'A1_PAIS'    ,"105"                                                                                      ,Nil})
-        aAdd(aAuto,{'A1_ULTCOM'  ,Stod(SubStr(aDados[nx][12],1,4) + SubStr(aDados[nx][12],6,2) + SubStr(aDados[nx][12],9,2)) ,Nil})  
-        aAdd(aAuto,{'A1_PRF_VLD' ,Stod(SubStr(aDados[nx][13],1,4) + SubStr(aDados[nx][13],6,2) + SubStr(aDados[nx][13],9,2)) ,Nil})
-        aAdd(aAuto,{'A1_PRF_VLD' ,Stod(SubStr(aDados[nx][18],1,4) + SubStr(aDados[nx][18],6,2) + SubStr(aDados[nx][18],9,2)) ,Nil})   
-        aAdd(aAuto,{'A1_EMAIL'   ,Alltrim(aDados[nx][19]) + Alltrim(aDados[nx][20]) + Alltrim(aDados[nx][21])                ,Nil})
+        aAdd(aAuto,{'A1_ULTCOM'  ,Stod(SubStr(aDados[nx][12],7,4) + SubStr(aDados[nx][12],4,2) + SubStr(aDados[nx][12],1,2)) ,Nil})  
+        aAdd(aAuto,{'A1_PRF_VLD' ,Stod(SubStr(aDados[nx][13],7,4) + SubStr(aDados[nx][13],4,2) + SubStr(aDados[nx][13],1,2)) ,Nil})
+        aAdd(aAuto,{'A1_PRICOM'  ,Stod(SubStr(aDados[nx][18],7,4) + SubStr(aDados[nx][18],4,2) + SubStr(aDados[nx][18],1,2)) ,Nil})   
+        aAdd(aAuto,{'A1_EMAIL'   ,cEmail                                                                                     ,Nil})
+        aAdd(aAuto,{'A1_ZZEMFIS' ,cEmail2                                                                                    ,Nil})
         aAdd(aAuto,{'A1_FAX'     ,Alltrim(U_NEWGENASP(aDados[nx][22]))                                                       ,Nil})
         aAdd(aAuto,{'A1_TEL'     ,Alltrim(U_NEWGENASP(aDados[nx][24]))                                                       ,Nil})
         aAdd(aAuto,{'A1_ZZTEL2'  ,Alltrim(U_NEWGENASP(aDados[nx][25]))                                                       ,Nil})
-        aAdd(aAuto,{'A1_ZZHIST'  ,Alltrim(U_NEWGENASP(aDados[nx][28]))                                                       ,Nil})
-        aAdd(aAuto,{'A1_INSCR'   ,Alltrim(U_NEWGENASP(aDados[nx][30]))                                                       ,Nil})
-        aAdd(aAuto,{'A1_NREDUZ'  ,Alltrim(U_NEWGENASP(aDados[nx][34]))                                                       ,Nil})
-        aAdd(aAuto,{'A1_NOME'    ,Alltrim(aDados[nx][35])                                                                    ,Nil})
-        aAdd(aAuto,{'A1_ZZSITE'  ,Alltrim(aDados[nx][38])                                                                    ,Nil})
+        aAdd(aAuto,{'A1_INSCR'   ,Alltrim(U_NEWGENASP(aDados[nx][29]))                                                       ,Nil})
+        aAdd(aAuto,{'A1_NREDUZ'  ,Alltrim(U_NEWGENASP(aDados[nx][33]))                                                       ,Nil})
+        aAdd(aAuto,{'A1_NOME'    ,Alltrim(aDados[nx][34])                                                                    ,Nil})
+        aAdd(aAuto,{'A1_ZZSITE'  ,Alltrim(aDados[nx][37])                                                                    ,Nil})
 
         MSExecAuto({|a,b,c| MATA030(a,b,c)}, aAuto, 3, aAI0Auto)
             
@@ -168,7 +177,7 @@ Static Function SPFatImp02(lEnd, cArq)
             
         Else
 
-            Conout("Cliente incluio com sucesso!")
+            Conout("Cliente incluido com sucesso!")
 
             nConta ++
             

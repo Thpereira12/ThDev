@@ -2,13 +2,16 @@
 #Include 'Protheus.ch'
 #Include 'FWMVCDef.ch'
 
-/*/{Protheus.doc} M410STTS
+//--------------------------------------------------
+	/*/{Protheus.doc} M410STTS
+	Pergunta se deseja imprimir o reltório do pedido de venda, chamando a função U_MRSFAT01
 
-@author Thierry
-@since 16/12/2022
+	@author Thierry Pereira
+	@since 27/12/2022
 
-/*/
-
+	@return
+	/*/
+//--------------------------------------------------
 
 User Function M410STTS()
 
