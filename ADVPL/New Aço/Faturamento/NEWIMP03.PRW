@@ -3,7 +3,7 @@
 
 /*/{Protheus.doc} NEWIMP03
 
-Importação de Contas a Pagar    
+importacao de Contas a Pagar    
 @author Brito
 @since 28/12/2022
 
@@ -16,10 +16,10 @@ User Function NEWIMP03()
 
 	SaveInter()
 
-    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importação Títulos a Pagar","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
-            "Importação Títulos a Pagar New Aço",@aRet)
+    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"importacao Titulos a Pagar","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
+            "importacao Titulos a Pagar New Aco",@aRet)
 
-        Processa({|| NewPagImp03( lEnd, aRet[1] )}, "Lendo títulos arquivo csv...")
+        Processa({|| NewPagImp03( lEnd, aRet[1] )}, "Lendo titulos arquivo csv...")
 
     EndIf
 
@@ -31,7 +31,7 @@ Return
 
 //--------------------------------------------------
 	/*/{Protheus.doc} NewPagImp03
-	Importa registros e grava títulos a pagar
+	Importa registros e grava titulos a pagar
 	
     @author Brito
     @since 22/11/2022
@@ -74,7 +74,7 @@ Static Function NewPagImp03(lEnd, cArq)
 
  
 	If !File(cArq)
-		MsgStop("O arquivo "  + cArq + " não foi encontrado. A importação será abortada!","ATENCAO")
+		MsgStop("O arquivo "  + cArq + " nao foi encontrado. A importacao sera abortada!","ATENCAO")
 		Return
 	EndIf
  
@@ -111,7 +111,7 @@ Static Function NewPagImp03(lEnd, cArq)
 
         ConfirmSx8("SE2", "E2_NUM")
 
-        IncProc("Analisando título a pagar " + cValToChar(nAtual) + " de " + cValToChar(nTotal) + "...")
+        IncProc("Analisando titulo a pagar " + cValToChar(nAtual) + " de " + cValToChar(nTotal) + "...")
 
         aAdd(aAuto, {"E2_FILIAL"   , FWxFilial("SE2")                                                                           ,Nil})
         aAdd(aAuto, {"E2_NUM"      , cNum                                                                                       ,Nil})
@@ -140,7 +140,7 @@ Static Function NewPagImp03(lEnd, cArq)
                 DisarmTransaction()
             EndIf
 
-            Conout("Título não cadastrado!")
+            Conout("Titulo nao cadastrado!")
 
             aErrPCAuto	:= GETAUTOGRLOG()
             cMsgErro	:= ""
@@ -155,7 +155,7 @@ Static Function NewPagImp03(lEnd, cArq)
             
         Else
 
-            Conout("Título incluso com sucesso!")
+            Conout("Titulo incluso com sucesso!")
 
             nConta ++
             
@@ -168,14 +168,14 @@ Static Function NewPagImp03(lEnd, cArq)
 
 	RestArea(aArea)
 
-     FWAlertSuccess("Total de títulos inclusos: " + cValTochar(nConta) , "Títulos a Pagar")
+     FWAlertSuccess("Total de titulos inclusos: " + cValTochar(nConta) , "Titulos a Pagar")
 
 Return lRetorno
 
 
 //--------------------------------------------------
 	/*/{Protheus.doc} Imp03For
-	Retorna código do fornecedor atual, a partir do codigo legado
+	Retorna codigo do fornecedor atual, a partir do codigo legado
 	
     @author Brito
     @since 02/01/2023

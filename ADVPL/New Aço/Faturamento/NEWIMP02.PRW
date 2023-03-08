@@ -3,7 +3,7 @@
 
 /*/{Protheus.doc} NEWFAT02
 
-Importação de Produtos
+importacao de Produtos
 
 @author Brito
 @since 22/11/2022
@@ -17,10 +17,10 @@ User Function NEWIMP02()
 
 	SaveInter()
 
-    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importação Produtos","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
-            "Importação Produtos New Aço",@aRet)
+    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importacao Produtos","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
+            "Importacao Produtos New Aço",@aRet)
 
-        MsgRun("Lendo produtos arquivo csv...", "Título", {|| NewPrdImp01( lEnd, aRet[1] ) })
+        MsgRun("Lendo produtos arquivo csv...", "Titulo", {|| NewPrdImp01( lEnd, aRet[1] ) })
 
     EndIf
 
@@ -78,7 +78,7 @@ Static Function NewPrdImp01(lEnd, cArq)
 
  
 	If !File(cArq)
-		MsgStop("O arquivo "  + cArq + " não foi encontrado. A importação será abortada!","ATENCAO")
+		MsgStop("O arquivo "  + cArq + " nao foi encontrado. A importacao sera abortada!","ATENCAO")
 		Return
 	EndIf
  
@@ -171,7 +171,7 @@ Static Function NewPrdImp01(lEnd, cArq)
 
             ConfirmSx8()
 
-            Conout("Produto incluído com sucesso!")
+            Conout("Produto incluido com sucesso!")
             
         EndIf
 

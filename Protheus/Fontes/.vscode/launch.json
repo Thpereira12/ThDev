@@ -24,10 +24,7 @@
 		},
 		{
 			"label": "U_fTiraAcent"
-		},
-		{
-			"label": "SIGACFG"
 		}
 	],
-	"lastProgramExecuted": "SIGAADV"
+	"lastProgramExecuted": "U_fTiraAcent"
 }

@@ -4,7 +4,7 @@
 
 //--------------------------------------------------
 	/*/{Protheus.doc} MA410MNU
-	Pergunta se deseja imprimir o reltório do pedido de venda, chamando a função U_MRSFAT01
+	Pergunta se deseja imprimir o relatorio do pedido de venda, chamando a funcao U_MRSFAT01
 
 	@author Thierry Pereira
 	@since 04/01/2023

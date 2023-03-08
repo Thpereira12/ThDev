@@ -3,7 +3,7 @@
 
 /*/{Protheus.doc} NEWFAT04
 
-Importação de Clientes
+Importaçao de Clientes
 
 @author Brito
 @since 22/11/2022
@@ -17,8 +17,8 @@ User Function NEWIMP04()
 
 	SaveInter()
 
-    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importação Clientes","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
-            "Importação Clientes New Aço",@aRet)
+    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importacao Clientes","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
+            "Importacao Clientes New Aço",@aRet)
 
         Processa({|| NewCliImp01( lEnd, aRet[1] )}, "Lendo clientes arquivo csv...")
 
@@ -75,7 +75,7 @@ Static Function NewCliImp01(lEnd, cArq)
 
  
 	If !File(cArq)
-		MsgStop("O arquivo "  + cArq + " não foi encontrado. A importação será abortada!","ATENCAO")
+		MsgStop("O arquivo "  + cArq + " nao foi encontrado. A importaçao sera abortada!","ATENCAO")
 		Return
 	EndIf
  
@@ -138,7 +138,7 @@ Static Function NewCliImp01(lEnd, cArq)
                 DisarmTransaction()
             EndIf
 
-            Conout("Cliente não cadastrado!")
+            Conout("Cliente nao cadastrado!")
 
             /*aErrPCAuto	:= GETAUTOGRLOG()
             cMsgErro	:= ""
@@ -153,7 +153,7 @@ Static Function NewCliImp01(lEnd, cArq)
             
         Else
 
-            Conout("Cliente incluído com sucesso!")
+            Conout("Cliente incluido com sucesso!")
 
             nConta ++
             

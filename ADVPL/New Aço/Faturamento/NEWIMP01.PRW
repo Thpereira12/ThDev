@@ -3,7 +3,7 @@
 
 /*/{Protheus.doc} NEWFAT01
 
-Importação de Fornecedores
+Importacao de Fornecedores
 
 @author Brito
 @since 22/11/2022
@@ -17,8 +17,8 @@ User Function NEWIMP01()
 
 	SaveInter()
 
-    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importação Fornecedores","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
-            "Importação Fornecedores New Aço",@aRet)
+    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importacao Fornecedores","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
+            "Importacao Fornecedores New Aco",@aRet)
 
         Processa({|| NewFatImp01( lEnd, aRet[1] )}, "Lendo fornecedores arquivo csv...")
 
@@ -75,7 +75,7 @@ Static Function NewFatImp01(lEnd, cArq)
 
  
 	If !File(cArq)
-		MsgStop("O arquivo "  + cArq + " não foi encontrado. A importação será abortada!","ATENCAO")
+		MsgStop("O arquivo "  + cArq + " nao foi encontrado. A importação sera abortada!","ATENCAO")
 		Return
 	EndIf
  
@@ -139,7 +139,7 @@ Static Function NewFatImp01(lEnd, cArq)
             
         Else
 
-            Conout("Fornecedor incluído com sucesso!")
+            Conout("Fornecedor incluido com sucesso!")
 
             nConta ++
             

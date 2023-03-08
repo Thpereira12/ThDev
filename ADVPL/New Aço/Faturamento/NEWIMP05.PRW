@@ -3,7 +3,7 @@
 
 /*/{Protheus.doc} NEWIMP05
 
-Importação de Contas a Receber
+importacao de Contas a Receber
 @author Brito
 @since 28/12/2022
 
@@ -16,10 +16,10 @@ User Function NEWIMP05()
 
 	SaveInter()
 
-    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"Importação Títulos a Receber","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
-            "Importação Títulos a Receber New Aço",@aRet)
+    If ParamBox({	{6,"Selecione Arquivo",PadR("",150),"",,"", 90 ,.T.,"importacao titulos a Receber","",GETF_LOCALHARD+GETF_LOCALFLOPPY+GETF_NETWORKDRIVE}},;
+            "importacao titulos a Receber New Aço",@aRet)
 
-        Processa({|| NewRecImp05( lEnd, aRet[1] )}, "Lendo títulos arquivo csv...")
+        Processa({|| NewRecImp05( lEnd, aRet[1] )}, "Lendo titulos arquivo csv...")
 
     EndIf
 
@@ -31,7 +31,7 @@ Return
 
 //--------------------------------------------------
 	/*/{Protheus.doc} NewRecImp05
-	Importa registros e grava títulos a receber
+	Importa registros e grava titulos a receber
 	
     @author Brito
     @since 22/11/2022
@@ -57,7 +57,7 @@ Static Function NewRecImp05(lEnd, cArq)
     Local lRetorno    := .F.
     Local nConta      := 0
     Local nAtual      := 0
-    Local nLoop       := 0
+    //Local nLoop       := 0
 	Local cNum        := ""
 
     Private lMsErroAuto     as logical
@@ -74,7 +74,7 @@ Static Function NewRecImp05(lEnd, cArq)
 
  
 	If !File(cArq)
-		MsgStop("O arquivo "  + cArq + " não foi encontrado. A importação será abortada!","ATENCAO")
+		MsgStop("O arquivo "  + cArq + " não foi encontrado. A importacao sera abortada!","ATENCAO")
 		Return
 	EndIf
  
@@ -111,7 +111,7 @@ Static Function NewRecImp05(lEnd, cArq)
 
         ConfirmSx8("SE1", "E1_NUM")
 
-        IncProc("Analisando título a receber " + cValToChar(nAtual) + " de " + cValToChar(nTotal) + "...")
+        IncProc("Analisando titulo a receber " + cValToChar(nAtual) + " de " + cValToChar(nTotal) + "...")
 
         If Len(aDados[nx]) >= 12
             aAdd(aAuto, {"E1_FILIAL"   , FWxFilial("SE2")                                                                           ,Nil})
@@ -143,7 +143,7 @@ Static Function NewRecImp05(lEnd, cArq)
                     DisarmTransaction()
                 EndIf
 
-                Conout("Título não cadastrado!")
+                Conout("Titulo não cadastrado!")
 
                 aErrPCAuto	:= GETAUTOGRLOG()
                 cMsgErro	:= ""
@@ -158,7 +158,7 @@ Static Function NewRecImp05(lEnd, cArq)
                 
             Else
 
-                Conout("Título incluso com sucesso!")
+                Conout("Titulo incluso com sucesso!")
 
                 nConta ++
                 
@@ -172,7 +172,7 @@ Static Function NewRecImp05(lEnd, cArq)
 
 	RestArea(aArea)
 
-     FWAlertSuccess("Total de títulos inclusos: " + cValTochar(nConta) , "Títulos a Receber")
+     FWAlertSuccess("Total de titulos inclusos: " + cValTochar(nConta) , "titulos a Receber")
 
 Return lRetorno
 
